@@ -24,12 +24,12 @@ public class userController {
     }
 
   @GetMapping("/{username}")
-  public ResponseEntity<users> getUser(@PathVariable String username) {
+  public ResponseEntity<String> getUser(@PathVariable String username) {
     users user = userService.getUserByUsername(username);
     if (user != null) {
-      return new ResponseEntity<>(user, HttpStatus.OK);
+      return new ResponseEntity<>("User found", HttpStatus.OK);
     } else {
-      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+      return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
     }
   }
 }
