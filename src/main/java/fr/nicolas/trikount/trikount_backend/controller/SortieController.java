@@ -13,7 +13,8 @@ import fr.nicolas.trikount.trikount_backend.service.SortieService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4201")
-@RequestMapping("/api/sortie")
+@RequestMapping("/api/sortie")git merge main
+
 public class SortieController {
 
   @Autowired
