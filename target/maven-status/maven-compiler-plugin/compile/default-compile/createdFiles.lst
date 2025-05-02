@@ -1,0 +1,17 @@
+fr\nicolas\trikount\trikount_backend\controller\SortieController.class
+fr\nicolas\trikount\trikount_backend\repository\SortieRepository.class
+fr\nicolas\trikount\trikount_backend\repository\UserRepository.class
+fr\nicolas\trikount\trikount_backend\model\User.class
+fr\nicolas\trikount\trikount_backend\service\UserService.class
+fr\nicolas\trikount\trikount_backend\DTO\UserDTO.class
+fr\nicolas\trikount\trikount_backend\model\Depense.class
+fr\nicolas\trikount\trikount_backend\service\DepenceService.class
+fr\nicolas\trikount\trikount_backend\DTO\SortieRequest.class
+fr\nicolas\trikount\trikount_backend\DTO\SortieDTO.class
+fr\nicolas\trikount\trikount_backend\model\Sortie.class
+fr\nicolas\trikount\trikount_backend\service\SortieService.class
+fr\nicolas\trikount\trikount_backend\controller\UserController.class
+fr\nicolas\trikount\trikount_backend\DTO\UserSummaryDTO.class
+fr\nicolas\trikount\trikount_backend\repository\DepenceRepository.class
+fr\nicolas\trikount\trikount_backend\TrikountApiApplication.class
+fr\nicolas\trikount\trikount_backend\DTO\DepenseDTO.class
