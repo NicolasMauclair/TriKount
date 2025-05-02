@@ -3,7 +3,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
+    "baseUrl": "./",  // Cela permet de définir la base des chemins relatifs
+    "paths": {
+      "@app/*": ["src/app/*"]  // Ajoute cette ligne pour configurer l'alias @app
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

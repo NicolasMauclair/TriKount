@@ -1,0 +1,10 @@
+<!-- Affichage du message de chargement -->
+<ng-container *ngIf="isLoading">
+  <p>Chargement des données...</p>
+</ng-container>
+
+<!-- Affichage des données une fois qu'elles sont chargées -->
+<ng-container *ngIf="!isLoading">
+  <p>{{ sortie.users.length }}</p>
+  <p>{{ sortie.id }}</p>
+</ng-container>

@@ -1,0 +1,36 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+  <ng-container *ngIf="user && ListSortieJoin.length > 0">
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-xl font-semibold mb-4">Joined Sorties</h2>
+      <div class="grid grid-cols-1 gap-4">
+        <div *ngFor="let sortie of ListSortieJoin" class="bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-xl transition-all">
+          <p class="text-lg font-medium text-gray-800">{{ sortie.name }}</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="user && ListSortieJoin.length === 0">
+    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+      <p class="text-lg text-gray-500">You haven't joined any sorties yet.</p>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="user && ListSortieCreate.length > 0">
+    <div (click)="goToSortie(ListSortieCreate[0].id)" class="bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-xl font-semibold mb-4">Created Sorties</h2>
+      <div class="grid grid-cols-1 gap-4">
+        <div *ngFor="let sortie of ListSortieCreate" class="bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-xl transition-all">
+          <p class="text-lg font-medium text-gray-800">{{ sortie.name }}</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="user && ListSortieCreate.length === 0">
+    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+      <p class="text-lg text-gray-500">You haven't created any sorties yet.</p>
+    </div>
+  </ng-container>
+</div>
