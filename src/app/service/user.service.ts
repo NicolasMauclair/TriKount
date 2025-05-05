@@ -11,10 +11,10 @@ export class UserService {
 
   constructor(private apiService: ApiService) { }
 
-  login(username: string): Observable<UserSummary> {
-    return this.apiService.get('users/searchUserByUsername/' + username);
+  login(username: string, password: string): Observable<UserSummary> {
+    return this.apiService.post('users/login', { username, password });
   }
-
+  
   register(username: string): Observable<UserSummary> {
     return this.apiService.post('users/createUser', { username });
   }

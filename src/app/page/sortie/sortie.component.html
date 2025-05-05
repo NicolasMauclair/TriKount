@@ -1,10 +1,51 @@
-<!-- Affichage du message de chargement -->
+<!-- Message de chargement centré -->
 <ng-container *ngIf="isLoading">
-  <p>Chargement des données...</p>
+  <p class="font-bold text-2xl fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    Chargement des données...
+  </p>
 </ng-container>
 
-<!-- Affichage des données une fois qu'elles sont chargées -->
+<!-- Contenu principal -->
 <ng-container *ngIf="!isLoading">
-  <p>{{ sortie.users.length }}</p>
-  <p>{{ sortie.id }}</p>
+  <div class="p-6 space-y-6">
+    <!-- Nom de la sortie -->
+    <h1 class="text-3xl font-bold text-center">{{ sortie.name }}</h1>
+
+    <!-- Liste des participants -->
+    <div class="bg-white rounded-lg shadow p-4">
+      <h2 class="text-xl font-semibold mb-4">Participants</h2>
+      <div *ngIf="sortie.usersId.length > 0; else noParticipants">
+        <ul class="space-y-2">
+          <li *ngFor="let user of sortie.usersId" class="text-gray-700">
+            {{ user.username }}
+          </li>
+        </ul>
+      </div>
+      <ng-template #noParticipants>
+        <p class="text-gray-500 italic">Aucun participant</p>
+      </ng-template>
+    </div>
+
+    <!-- Liste des dépenses -->
+    <div class="bg-white rounded-lg shadow p-4">
+      <h2 class="text-xl font-semibold mb-4">Dépenses</h2>
+      <div *ngIf="sortie.depenseId.length > 0; else noDepenses">
+        <ul class="space-y-2">
+          <li *ngFor="let dep of sortie.depenseId" class="text-gray-700">
+            <!-- Affiche ici les infos si tu veux comme dep.name ou autre -->
+            Dépense ID : {{ dep }}
+          </li>
+        </ul>
+      </div>
+      <ng-template #noDepenses>
+        <p class="text-gray-500 italic">Aucune dépense</p>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- Bouton suppression en bas à gauche -->
+  <button (click)="true"
+    class="fixed bottom-5 left-5 w-12 h-12 flex items-center justify-center bg-red-500 hover:bg-red-600 rounded-full shadow-lg">
+    <i class='bx bx-trash text-2xl text-white'></i>
+  </button>
 </ng-container>

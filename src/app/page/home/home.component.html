@@ -1,10 +1,11 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="mt-10 mx-5 grid grid-cols-1 sm:grid-cols-2 gap-6">
 
   <ng-container *ngIf="user && ListSortieJoin.length > 0">
-    <div class="bg-white p-6 rounded-lg shadow-md">
+    <div (click)="goToSortie(ListSortieJoin[0].id)" class="bg-white p-6 rounded-lg shadow-md">
       <h2 class="text-xl font-semibold mb-4">Joined Sorties</h2>
       <div class="grid grid-cols-1 gap-4">
-        <div *ngFor="let sortie of ListSortieJoin" class="bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-xl transition-all">
+        <div *ngFor="let sortie of ListSortieJoin"
+          class="bg-gray-100 p-4 rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-all">
           <p class="text-lg font-medium text-gray-800">{{ sortie.name }}</p>
         </div>
       </div>
@@ -21,7 +22,8 @@
     <div (click)="goToSortie(ListSortieCreate[0].id)" class="bg-white p-6 rounded-lg shadow-md">
       <h2 class="text-xl font-semibold mb-4">Created Sorties</h2>
       <div class="grid grid-cols-1 gap-4">
-        <div *ngFor="let sortie of ListSortieCreate" class="bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-xl transition-all">
+        <div *ngFor="let sortie of ListSortieCreate"
+          class="bg-gray-100 p-4 rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-all">
           <p class="text-lg font-medium text-gray-800">{{ sortie.name }}</p>
         </div>
       </div>
@@ -34,3 +36,5 @@
     </div>
   </ng-container>
 </div>
+
+<button (click)="createSortie()" class="fixed bottom-5 right-5 w-10 h-10 color-white bg-red-500 hover:bg-red-600 rounded-lg"><i class='bx bx-plus text-3xl' style='color:#fafafa'  ></i></button>

@@ -47,5 +47,9 @@ export class HomeComponent implements OnInit {
   goToSortie(id: number) {
     this.router.navigate([`sortie/${id}`]);
   }
+
+  createSortie() {
+    
+  }
   
 }

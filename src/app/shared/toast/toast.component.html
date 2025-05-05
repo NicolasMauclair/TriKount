@@ -1,0 +1,17 @@
+<div
+  class="fixed right-4 bottom-4">
+  <div *ngFor="let toast of toastService.toasts"
+    class="px-3 py-2 rounded-lg text-white text-xs border-2 font-semibold cursor-pointer" [ngClass]="{
+      'border-ToastSuccessBorder bg-ToastSuccess': isSuccess(toast),
+      'border-ToastErrorBorder bg-ToastError': isError(toast)
+    }" (click)="removeToast(toast)">
+    <span *ngIf="isSuccess(toast)" class="flex justify-center items-center gap-1">
+      <i class="bx bxs-check-circle text-lg" style='color:#ffffff'></i>
+      {{ toast.message }}
+    </span>
+    <span *ngIf="isError(toast)" class="flex justify-center items-center gap-1">
+      <i class='bx bx-error-circle text-lg' style='color:#ffffff'  ></i>
+      {{ toast.message }}
+    </span>
+  </div>
+</div>

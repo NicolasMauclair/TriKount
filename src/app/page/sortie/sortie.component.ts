@@ -11,14 +11,7 @@ import { Sortie } from 'src/model/sortie.model';
 })
 export class SortieComponent implements OnInit {
   id: number | null = null;
-  sortie: Sortie = {
-    id: 0,
-    name: '',
-    CreatedById: 0,
-    users: [],
-    depenses: []
-  };
-  ;
+  sortie: any;
   isLoading: boolean = true;
 
   constructor( 
