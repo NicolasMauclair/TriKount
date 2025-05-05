@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.nicolas.trikount.trikount_backend.DTO.SortieDTO;
 import fr.nicolas.trikount.trikount_backend.DTO.UserDTO;
+import fr.nicolas.trikount.trikount_backend.DTO.UserConnexion;
 import fr.nicolas.trikount.trikount_backend.model.User;
 import fr.nicolas.trikount.trikount_backend.service.UserService;
 
@@ -37,6 +38,13 @@ public class UserController {
   public ResponseEntity<UserDTO> createUser(@RequestBody User user) {
     UserDTO createdUser = userService.createUser(user);
     return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+  }
+
+  // Connexion d'un utilisateur
+  @PostMapping("/login")
+  public ResponseEntity<UserDTO> connexionUser(@RequestBody UserConnexion userConnexion) {
+    UserDTO user = userService.connexionUser(userConnexion.getUsername(), userConnexion.getPassword());
+    return new ResponseEntity<>(user, HttpStatus.OK);
   }
 
   // Recherche un utilisateur par son username

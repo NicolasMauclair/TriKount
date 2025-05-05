@@ -33,7 +33,7 @@ public class Sortie {
   @ManyToMany(mappedBy = "joinedSorties")
   private List<User> users = new ArrayList<>();
 
-  @OneToMany(mappedBy = "sortie", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "sortie", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Depense> depenses = new ArrayList<>();
 
 

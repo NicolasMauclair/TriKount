@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import fr.nicolas.trikount.trikount_backend.DTO.SortieDTO;
 import fr.nicolas.trikount.trikount_backend.DTO.UserDTO;
+import fr.nicolas.trikount.trikount_backend.exception.UserNotFoundException;
 import fr.nicolas.trikount.trikount_backend.model.User;
 import fr.nicolas.trikount.trikount_backend.repository.UserRepository;
 
@@ -23,6 +24,14 @@ public class UserService {
       throw new RuntimeException("Username already exists");
     }
     return new UserDTO(userRepository.save(user));
+  }
+
+  // Connexion d'un utilisateur
+  public UserDTO connexionUser(String username, String password) {
+    User user = userRepository.findByUsernameAndPassword(username, password);
+    if (user == null)
+      throw new UserNotFoundException("Identifiants incorrects");
+    return new UserDTO(user);
   }
 
   // Recherche un utilisateur par son username

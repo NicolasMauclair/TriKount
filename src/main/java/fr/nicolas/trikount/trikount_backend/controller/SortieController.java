@@ -48,9 +48,15 @@ public class SortieController {
   }
 
   // Supprimer une sortie
-  @DeleteMapping("/deleteSortie/{id}")
-  public ResponseEntity<String> deleteSortie(@PathVariable Long id) {
-    sortieService.deleteSortie(id);
-    return new ResponseEntity<>("Sortie deleted", HttpStatus.OK);
+  @DeleteMapping("/deleteSortie/{idSortie}/user/{idUser}")
+  public ResponseEntity<String> deleteSortie(@PathVariable Long idSortie, @PathVariable Long idUser) {
+      boolean deleted = sortieService.deleteSortieIfCreator(idSortie, idUser);
+      if (deleted) {
+          return new ResponseEntity<>("Sortie deleted", HttpStatus.OK);
+      } else {
+          return new ResponseEntity<>("Unauthorized", HttpStatus.FORBIDDEN);
+      }
   }
+
 }
+  

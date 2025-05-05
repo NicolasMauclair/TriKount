@@ -1,27 +1,22 @@
-version: '3.8'
+version: "3.8"
 
 # Conteneurs crées
 services:
 
-  # Conteneur spring boot
+  # Conteneur Spring Boot
   springboot-app:
-    build: . # Construit l'image à partir du Dockerfile
+    build: .
     ports:
       - "8081:8080"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/trikountBDD
-      SPRING_DATASOURCE_USERNAME: admin
-      SPRING_DATASOURCE_PASSWORD: admin
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
-      SPRING_SQL_INIT_MODE: always
+    env_file:
+      - .env
     depends_on:
-      - db # Force démarrage BDD avant spring boot
+      - db
     networks:
-      - app-network # connecter réseau interne
-
+      - app-network
 
   # Conteneur PostgreSQL
-  db: 
+  db:
     image: postgres:latest # Utilise l'image officielle de PostgreSQL.
     environment: # Configure la base de données créée au démarrage
       POSTGRES_USER: admin

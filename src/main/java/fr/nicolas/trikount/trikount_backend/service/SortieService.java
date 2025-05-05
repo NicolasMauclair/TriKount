@@ -1,6 +1,7 @@
 package fr.nicolas.trikount.trikount_backend.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,7 +70,16 @@ public class SortieService {
     }
 
     // Méthode pour supprimer une sortie
-    public void deleteSortie(Long id) {
-        sortieRepository.deleteById(id);
+    public boolean deleteSortieIfCreator(Long idSortie, Long idUser) {
+        Optional<Sortie> sortieOpt = sortieRepository.findById(idSortie);
+        if (sortieOpt.isPresent()) {
+            Sortie sortie = sortieOpt.get();
+            if (sortie.getCreatedBy().getId().equals(idUser)) {
+                sortieRepository.delete(sortie);
+                return true;
+            }
+        }
+        return false;
     }
+    
 }
