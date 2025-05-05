@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SortieService } from '@app/service/sortie.service';
+import { Location } from '@angular/common';
+
 import { Sortie } from 'src/model/sortie.model';
 
 @Component({
@@ -16,7 +18,9 @@ export class SortieComponent implements OnInit {
 
   constructor( 
     private route: ActivatedRoute,
-    private sortieService: SortieService
+    private sortieService: SortieService,
+    private router: Router,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -40,5 +44,9 @@ export class SortieComponent implements OnInit {
       console.warn('Aucun ID trouvé dans l’URL');
       this.isLoading = false; // Aucun ID -> on arrête le chargement aussi
     }
+  }
+
+  goToHome() {
+    this.location.back();
   }
 }

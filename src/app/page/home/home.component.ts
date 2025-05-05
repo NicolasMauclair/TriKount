@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
   }
 
   createSortie() {
-    
+    this.router.navigate([`creation-sortie/${this.id}`]);
   }
   
 }

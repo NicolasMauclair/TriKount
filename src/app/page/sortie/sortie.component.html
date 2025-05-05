@@ -5,6 +5,14 @@
   </p>
 </ng-container>
 
+<button
+  (click)="goToHome()"
+  class="m-5 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-md transition duration-300 ease-in-out"
+>
+  ← Retour
+</button>
+
+
 <!-- Contenu principal -->
 <ng-container *ngIf="!isLoading">
   <div class="p-6 space-y-6">

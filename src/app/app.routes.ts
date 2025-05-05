@@ -20,5 +20,10 @@ export const routes: Routes = [
     path: 'sortie/:id',
     loadComponent: () =>
       import('./page/sortie/sortie.component').then(m => m.SortieComponent),
-  }
+  },
+  {
+    path: 'creation-sortie/:id',
+    loadComponent: () =>
+      import('./page/creation-sortie/creation-sortie.component').then(m => m.CreationSortieComponent),
+  },
 ];
