@@ -56,13 +56,14 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.0</version> <!-- Assure-toi d'avoir la dernière version compatible -->
+                <version>3.10.0</version>
                 <configuration>
-                    <release>${java.version}</release> <!-- Utilisation de l'option release pour la compatibilité stricte -->
+                    <source>21</source>
+                    <target>21</target>
                 </configuration>
             </plugin>
 
-            <!-- Plugin Spring Boot -->
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
