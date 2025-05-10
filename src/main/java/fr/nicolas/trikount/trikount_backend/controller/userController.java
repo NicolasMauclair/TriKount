@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestController; 
 
 import fr.nicolas.trikount.trikount_backend.DTO.SortieDTO;
-import fr.nicolas.trikount.trikount_backend.DTO.UserDTO;
 import fr.nicolas.trikount.trikount_backend.DTO.UserConnexion;
+import fr.nicolas.trikount.trikount_backend.DTO.UserDTO;
 import fr.nicolas.trikount.trikount_backend.model.User;
 import fr.nicolas.trikount.trikount_backend.service.UserService;
 
