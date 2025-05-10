@@ -54,7 +54,7 @@ public class SortieController {
       if (deleted) {
           return new ResponseEntity<>("Sortie deleted", HttpStatus.OK);
       } else {
-          return new ResponseEntity<>("Unauthorized", HttpStatus.FORBIDDEN);
+          return new ResponseEntity<>("Unauthorized", HttpStatus.UNAUTHORIZED);
       }
   }
 

@@ -32,11 +32,15 @@ public class SortieService {
         creator.getCreatedSorties().add(newSortie);
 
         for (Long id : userIds) {
-            User user = userRepository.findById(id)
-                    .orElseThrow(() -> new IllegalArgumentException("Utilisateur non trouvé"));
 
-            newSortie.getUsers().add(user);
-            user.getJoinedSorties().add(newSortie);
+            // vérifie si l'utilisateur n'est pas déjà dans la sortie
+            if (newSortie.getUsers().stream().anyMatch(user -> user.getId().equals(id))) {
+                User user = userRepository.findById(id)
+                        .orElseThrow(() -> new IllegalArgumentException("Utilisateur non trouvé"));
+
+                newSortie.getUsers().add(user);
+                user.getJoinedSorties().add(newSortie);
+            }
         }
 
         return new SortieDTO(sortieRepository.save(newSortie));
@@ -81,5 +85,5 @@ public class SortieService {
         }
         return false;
     }
-    
+
 }
