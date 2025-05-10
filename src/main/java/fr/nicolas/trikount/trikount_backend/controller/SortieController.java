@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.nicolas.trikount.trikount_backend.DTO.SortieDTO;
-import fr.nicolas.trikount.trikount_backend.DTO.SortieRequest;
+import fr.nicolas.trikount.trikount_backend.DTO.SortieRequest; 
 import fr.nicolas.trikount.trikount_backend.service.SortieService;
 
 @CrossOrigin(origins = "http://localhost:4201")
